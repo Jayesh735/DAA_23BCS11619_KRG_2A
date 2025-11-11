@@ -1,0 +1,354 @@
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.5rem;
+  width: 20px;
+  height: 20px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.search-container:focus-within .search-icon {
+  color: var(--accent-primary);
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.25rem 3.5rem 1.25rem 3.5rem;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  background-color: transparent;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.clear-button {
+  position: absolute;
+  right: 7rem;
+  background: var(--bg-hover);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.clear-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.clear-button:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.search-button {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  padding: 0 2rem;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 1.5rem 1.5rem 0;
+  box-shadow: 0 0 0 rgba(139, 92, 246, 0);
+}
+
+.search-button:hover {
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: scale(1.02);
+}
+
+.search-button:active {
+  transform: scale(0.98);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.75rem;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  max-height: 450px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+.dropdown-section {
+  padding: 1rem;
+}
+
+.dropdown-subsection {
+  margin-bottom: 1.5rem;
+}
+
+.dropdown-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-header-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent-primary);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.25rem;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-hover);
+  transform: translateX(4px);
+}
+
+.dropdown-item.selected {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.item-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.item-category {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.item-trending-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.item-trending-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.15);
+  padding: 0.375rem 0.625rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.item-trending-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.recent-item {
+  justify-content: space-between;
+}
+
+.remove-recent-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.375rem;
+  border-radius: 50%;
+  display: none;
+  transition: all 0.2s ease;
+}
+
+.recent-item:hover .remove-recent-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-recent-button:hover {
+  background: var(--bg-tertiary);
+  transform: scale(1.1);
+}
+
+.remove-recent-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--text-tertiary);
+}
+
+.remove-recent-button:hover .remove-recent-icon {
+  color: var(--text-primary);
+}
+
+.dropdown-empty {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.dropdown-empty-hint {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-top: 0.5rem;
+}
+
+/* Loading Spinner */
+.search-loading {
+  position: absolute;
+  right: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Item Badges Container */
+.item-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Fuzzy Match Badge */
+.item-fuzzy-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50%;
+}
+
+.fuzzy-match {
+  opacity: 0.9;
+}
+
+.fuzzy-match:hover {
+  opacity: 1;
+}
